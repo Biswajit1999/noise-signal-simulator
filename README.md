@@ -83,3 +83,11 @@ A simplified signal-to-noise ratio can be written as:
 
 ```text
 SNR = signal strength / noise strength
+
+
+In this project:
+
+signal strength is estimated from the spread of the true signal
+noise strength is estimated from the spread of the random noise
+
+This is a simplified educational model. Real scientific instruments may include more complex noise sources.
