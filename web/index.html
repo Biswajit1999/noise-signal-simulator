@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Noise + Signal Simulator</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>Noise + Signal Simulator</h1>
+      <p>
+        Explore how detector noise affects weak scientific signals and how smoothing can help recover hidden patterns.
+      </p>
+    </section>
+
+    <section class="dashboard">
+      <div class="controls">
+        <h2>Controls</h2>
+
+        <label>
+          Noise level:
+          <span id="noiseValue">0.30</span>
+        </label>
+        <input type="range" id="noiseLevel" min="0" max="1.2" step="0.01" value="0.30" />
+
+        <label>
+          Smoothing window:
+          <span id="smoothValue">25</span>
+        </label>
+        <input type="range" id="smoothWindow" min="1" max="101" step="2" value="25" />
+
+        <label>
+          Signal frequency:
+          <span id="freqValue">1.00</span>
+        </label>
+        <input type="range" id="frequency" min="0.2" max="3" step="0.05" value="1.00" />
+
+        <div class="buttons">
+          <button data-mode="low">Low noise</button>
+          <button data-mode="medium">Medium noise</button>
+          <button data-mode="high">High noise</button>
+        </div>
+
+        <div class="stats">
+          <div>
+            <span>Estimated SNR</span>
+            <strong id="snrValue">--</strong>
+          </div>
+
+          <div>
+            <span>Noise regime</span>
+            <strong id="noiseRegime">--</strong>
+          </div>
+
+          <div>
+            <span>Scientific idea</span>
+            <strong>Signal recovery</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual">
+        <canvas id="canvas" width="1050" height="620"></canvas>
+      </div>
+    </section>
+
+    <section class="explanation">
+      <h2>Physics and instrumentation idea</h2>
+      <p>
+        Scientific measurements often contain noise from detectors, electronics, sky background,
+        photon statistics, or environmental fluctuations. A useful signal may be hidden beneath this noise.
+        Signal-to-noise ratio helps quantify how clearly the signal can be detected.
+      </p>
+
+      <p class="equation">
+        SNR = signal strength / noise strength
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
