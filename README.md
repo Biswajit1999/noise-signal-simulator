@@ -91,3 +91,7 @@ signal strength is estimated from the spread of the true signal
 noise strength is estimated from the spread of the random noise
 
 This is a simplified educational model. Real scientific instruments may include more complex noise sources.
+
+## Research Quality Upgrade
+
+See [RESEARCH_QUALITY.md](RESEARCH_QUALITY.md) for the validation layer, reference anchors, equations and research boundaries added to this repository.

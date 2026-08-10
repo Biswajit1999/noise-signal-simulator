@@ -1,0 +1,29 @@
+{
+  "title": "Noise Signal Simulator",
+  "description": "Scientific signal-to-noise simulator for detector noise, smoothing, weak-signal recovery and measurement uncertainty.",
+  "equations": [
+    "SNR = signal / noise",
+    "Poisson noise sigma = sqrt(N)",
+    "Weighted mean inverse-variance estimator"
+  ],
+  "references": [
+    "Bevington, P.R. and Robinson, D.K., 2003. Data Reduction and Error Analysis for the Physical Sciences. McGraw-Hill."
+  ],
+  "anchors": [
+    {
+      "x": 10,
+      "y": 3.16,
+      "label": "Poisson SNR at 10 counts"
+    },
+    {
+      "x": 100,
+      "y": 10,
+      "label": "Poisson SNR at 100 counts"
+    },
+    {
+      "x": 10000,
+      "y": 100,
+      "label": "Poisson SNR at 10000 counts"
+    }
+  ]
+}
