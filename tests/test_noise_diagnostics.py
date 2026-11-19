@@ -16,6 +16,15 @@ class NoiseDiagnosticsTests(unittest.TestCase):
         self.assertAlmostEqual(amp, 3)
         self.assertGreater(err, 0)
 
+    def test_template_nearly_degenerate_with_baseline(self):
+        x = 1 + 1e-8 * np.arange(8.)
+        shifted_x = x - x[0]
+        observed = 0.07 + 3 * shifted_x
+        amp, error = weighted_template_amplitude(observed, x, np.ones(x.size))
+        expected_error = 1 / np.linalg.norm(shifted_x - shifted_x.mean())
+        np.testing.assert_allclose(amp, 3, rtol=1e-7)
+        np.testing.assert_allclose(error, expected_error, rtol=1e-7)
+
     def test_smoothing(self):
         x = np.ones(15)
         self.assertAlmostEqual(smoothing_bias_variance(x, np.stack([x, x]), 3)['mse'], 0)

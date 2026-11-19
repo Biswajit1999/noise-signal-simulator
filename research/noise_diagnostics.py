@@ -33,11 +33,13 @@ def weighted_template_amplitude(observed, template, sigma, include_offset=True):
     a = np.column_stack((x, np.ones_like(x))) if include_offset else x[:, None]
     aw = a / s[:, None]
     yw = y / s
-    if np.linalg.matrix_rank(aw) != aw.shape[1]:
+    left, singular, right_t = np.linalg.svd(aw, full_matrices=False)
+    tolerance = singular[0] * max(aw.shape) * np.finfo(aw.dtype).eps
+    if singular[-1] <= tolerance:
         raise ValueError('degenerate template and offset')
-    coefficients = np.linalg.lstsq(aw, yw, rcond=None)[0]
-    covariance = np.linalg.inv(aw.T @ aw)
-    return float(coefficients[0]), float(np.sqrt(covariance[0, 0]))
+    coefficients = right_t.T @ ((left.T @ yw) / singular)
+    amplitude_error = np.linalg.norm(right_t[:, 0] / singular)
+    return float(coefficients[0]), float(amplitude_error)
 
 
 def smoothing_bias_variance(truth, realizations, window):
