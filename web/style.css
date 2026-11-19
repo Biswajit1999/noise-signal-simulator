@@ -146,3 +146,21 @@ canvas {
     grid-template-columns: 1fr;
   }
 }
+.stability-figure {
+  margin: 1rem 0 0;
+  max-width: 800px;
+}
+.stability-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.stability-figure figcaption {
+  margin-top: .65rem;
+  line-height: 1.6;
+}
+.stability-figure a {
+  color: inherit;
+  text-decoration: underline;
+}
