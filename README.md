@@ -47,6 +47,12 @@ Understanding signal-to-noise ratio is essential for interpreting data from tele
 
 ## Visual Understanding
 
+### When longer averaging stops helping
+
+![Allan deviation falls for simulated white noise and rises at long averaging times when linear drift is added](web/allan-stability.svg)
+
+Both curves use the same seeded synthetic white noise. One adds a linear drift of 0.002 units per second. The curves compare non-overlapping Allan deviation at the same averaging times. [Open the simulator](https://biswajit1999.github.io/noise-signal-simulator/web/) or regenerate the plot with `python -m scripts.plot_allan_stability` after installing the dependencies in `requirements.txt`.
+
 ### Noisy Scientific Signal
 
 <p align="center">
@@ -83,11 +89,11 @@ A simplified signal-to-noise ratio can be written as:
 
 ```text
 SNR = signal strength / noise strength
-
+```
 
 In this project:
 
 signal strength is estimated from the spread of the true signal
 noise strength is estimated from the spread of the random noise
 
-This is a simplified educational model. Real scientific instruments may include more complex noise sources.
+This is a simplified educational model. See the [numerical diagnostics and their assumptions](docs/NOISE_DIAGNOSTICS_2026_11_19.md) for stability, template-amplitude fitting and smoothing bias.
